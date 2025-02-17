@@ -6,7 +6,7 @@
  *
  * @return {Object[]}
  */
-function transformcloneWithClones(state, actions) {
+function transformStateWithClones(state, actions) {
   let clone = { ...state };
   const steps = [];
 
@@ -24,6 +24,10 @@ function transformcloneWithClones(state, actions) {
 
       case 'clear':
         clone = {};
+        break;
+
+      default:
+        break;
     }
     steps.push(clone);
     clone = { ...clone };
@@ -32,4 +36,4 @@ function transformcloneWithClones(state, actions) {
   return steps;
 }
 
-module.exports = transformcloneWithClones;
+module.exports = transformStateWithClones;
